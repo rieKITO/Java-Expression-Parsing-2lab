@@ -19,6 +19,8 @@ public class ExpressionParser {
             if (!Character.isWhitespace(c)) {
                 if (Character.isDigit(c) || c == '.')
                     token.append(c);
+                else if (Character.isLetter(c))
+                    token.append(c);
                 else if (isOperator(c) || c == '(' || c == ')') {
                     if (!token.isEmpty()) {
                         tokens.add(token.toString());
