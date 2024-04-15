@@ -17,11 +17,11 @@ public class ExpressionParser {
         for (int i = 0; i < expression.length(); i++) {
             char c = expression.charAt(i);
             if (!Character.isWhitespace(c)) {
-                if (Character.isDigit(c) || c == '.')
+                if (Character.isDigit(c) || c == '.') {
                     token.append(c);
-                else if (Character.isLetter(c))
+                } else if (Character.isLetter(c)) {
                     token.append(c);
-                else if (isOperator(c) || c == '(' || c == ')') {
+                } else if (isOperator(c) || c == '(' || c == ')') {
                     if (!token.isEmpty()) {
                         tokens.add(token.toString());
                         token.setLength(0);
