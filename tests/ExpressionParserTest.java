@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class ExpressionParserTest {
 
@@ -41,5 +42,15 @@ public class ExpressionParserTest {
         assertEquals("+", tokens.get(4));
         assertEquals("x", tokens.get(5));
         assertEquals(")", tokens.get(6));
+    }
+
+    @Test
+    public void testInvalidExpression() {
+        String expression = "2 * (3 + x!";
+        ExpressionParser parser = new ExpressionParser(expression);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            parser.parse();
+        });
     }
 }
