@@ -49,8 +49,6 @@ public class ExpressionParserTest {
         String expression = "2 * (3 + x!";
         ExpressionParser parser = new ExpressionParser(expression);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            parser.parse();
-        });
+        assertThrows(IllegalArgumentException.class, parser::parse);
     }
 }
