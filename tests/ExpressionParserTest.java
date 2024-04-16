@@ -25,4 +25,21 @@ public class ExpressionParserTest {
         assertEquals("x", tokens.get(5));
         assertEquals(")", tokens.get(6));
     }
+
+    @Test
+    public void testParseExpressionWithSpaces() {
+        String expression = "2 * ( 3 + x )";
+        ExpressionParser parser = new ExpressionParser(expression);
+
+        List<String> tokens = parser.parse();
+
+        assertEquals(7, tokens.size());
+        assertEquals("2", tokens.get(0));
+        assertEquals("*", tokens.get(1));
+        assertEquals("(", tokens.get(2));
+        assertEquals("3", tokens.get(3));
+        assertEquals("+", tokens.get(4));
+        assertEquals("x", tokens.get(5));
+        assertEquals(")", tokens.get(6));
+    }
 }
